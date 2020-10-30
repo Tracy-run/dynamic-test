@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dynamic.demo.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.dynamic.demo.vo.User" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="post" property="post" jdbcType="VARCHAR" />
+    <result column="role_id" property="roleId" jdbcType="BIGINT" />
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <result column="mail" property="mail" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="department_mobile" property="departmentMobile" jdbcType="VARCHAR" />
+    <result column="group_name" property="groupName" jdbcType="VARCHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="project_department_name" property="projectDepartmentName" jdbcType="VARCHAR" />
+    <result column="maintain_department_name" property="maintainDepartmentName" jdbcType="VARCHAR" />
+    <result column="sn_code" property="snCode" jdbcType="VARCHAR" />
+    <result column="is_online" property="isOnline" jdbcType="VARCHAR" />
+    <result column="longitude" property="longitude" jdbcType="VARCHAR" />
+    <result column="latitude" property="latitude" jdbcType="VARCHAR" />
+    <result column="station_name" property="stationName" jdbcType="VARCHAR" />
+    <result column="line_name" property="lineName" jdbcType="VARCHAR" />
+    <result column="station_id" property="stationId" jdbcType="VARCHAR" />
+    <result column="line_id" property="lineId" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="flag" property="flag" jdbcType="VARCHAR" />
+    <result column="message_flag" property="messageFlag" jdbcType="VARCHAR" />
+    <result column="shake_flag" property="shakeFlag" jdbcType="VARCHAR" />
+    <result column="pic" property="pic" jdbcType="VARCHAR" />
+  </resultMap>
+  
+ <sql id="Base_Column_List" >
+     	id,
+     	username,
+     	password,
+     	name,
+     	post,
+     	role_id,
+     	role_name,
+     	mail,
+     	mobile,
+     	department_mobile,
+     	group_name,
+     	company_name,
+     	project_department_name,
+     	maintain_department_name,
+     	sn_code,
+     	is_online,
+     	longitude,
+     	latitude,
+     	station_name,
+     	line_name,
+     	station_id,
+     	line_id,
+     	type,
+     	flag,
+     	message_flag,
+     	pic,
+     	shake_flag
+  </sql>
+  
+  <select id="selectUserByKey" resultMap="BaseResultMap" parameterType="com.dynamic.demo.vo.User" >
+    select
+		<include refid="Base_Column_List" />
+    from user 
+    where  id = #{ id,jdbcType=BIGINT}
+  </select>
+  
+	<insert id="insertSelective" parameterType="com.dynamic.demo.vo.User">
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="username != null">
+				username,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="post != null">
+				post,
+			</if>
+			<if test="roleId != null">
+				role_id,
+			</if>
+			<if test="roleName != null">
+				role_name,
+			</if>
+			<if test="mail != null">
+				mail,
+			</if>
+			<if test="mobile != null">
+				mobile,
+			</if>
+			<if test="departmentMobile != null">
+				department_mobile,
+			</if>
+			<if test="groupName != null">
+				group_name,
+			</if>
+			<if test="companyName != null">
+				company_name,
+			</if>
+			<if test="projectDepartmentName != null">
+				project_department_name,
+			</if>
+			<if test="maintainDepartmentName != null">
+				maintain_department_name,
+			</if>
+			<if test="snCode != null">
+				sn_code,
+			</if>
+			<if test="isOnline != null">
+				is_online,
+			</if>
+			<if test="longitude != null">
+				longitude,
+			</if>
+			<if test="latitude != null">
+				latitude,
+			</if>
+			<if test="stationName != null">
+				station_name,
+			</if>
+			<if test="lineName != null">
+				line_name,
+			</if>
+			<if test="stationId != null">
+				station_id,
+			</if>
+			<if test="lineId != null">
+				line_id,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="flag != null">
+				flag,
+			</if>
+			<if test="messageFlag != null">
+				message_flag,
+			</if>
+			<if test="pic != null">
+				pic,
+			</if>
+			<if test="shakeFlag != null">
+				shake_flag,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				 #{ id,jdbcType= BIGINT },
+			</if>
+			<if test="username != null">
+				 #{ username,jdbcType= VARCHAR },
+			</if>
+			<if test="password != null">
+				 #{ password,jdbcType= VARCHAR },
+			</if>
+			<if test="name != null">
+				 #{ name,jdbcType= VARCHAR },
+			</if>
+			<if test="post != null">
+				 #{ post,jdbcType= VARCHAR },
+			</if>
+			<if test="roleId != null">
+				 #{ roleId,jdbcType= BIGINT },
+			</if>
+			<if test="roleName != null">
+				 #{ roleName,jdbcType= VARCHAR },
+			</if>
+			<if test="mail != null">
+				 #{ mail,jdbcType= VARCHAR },
+			</if>
+			<if test="mobile != null">
+				 #{ mobile,jdbcType= VARCHAR },
+			</if>
+			<if test="departmentMobile != null">
+				 #{ departmentMobile,jdbcType= VARCHAR },
+			</if>
+			<if test="groupName != null">
+				 #{ groupName,jdbcType= VARCHAR },
+			</if>
+			<if test="companyName != null">
+				 #{ companyName,jdbcType= VARCHAR },
+			</if>
+			<if test="projectDepartmentName != null">
+				 #{ projectDepartmentName,jdbcType= VARCHAR },
+			</if>
+			<if test="maintainDepartmentName != null">
+				 #{ maintainDepartmentName,jdbcType= VARCHAR },
+			</if>
+			<if test="snCode != null">
+				 #{ snCode,jdbcType= VARCHAR },
+			</if>
+			<if test="isOnline != null">
+				 #{ isOnline,jdbcType= VARCHAR },
+			</if>
+			<if test="longitude != null">
+				 #{ longitude,jdbcType= VARCHAR },
+			</if>
+			<if test="latitude != null">
+				 #{ latitude,jdbcType= VARCHAR },
+			</if>
+			<if test="stationName != null">
+				 #{ stationName,jdbcType= VARCHAR },
+			</if>
+			<if test="lineName != null">
+				 #{ lineName,jdbcType= VARCHAR },
+			</if>
+			<if test="stationId != null">
+				 #{ stationId,jdbcType= VARCHAR },
+			</if>
+			<if test="lineId != null">
+				 #{ lineId,jdbcType= VARCHAR },
+			</if>
+			<if test="type != null">
+				 #{ type,jdbcType= VARCHAR },
+			</if>
+			<if test="flag != null">
+				 #{ flag,jdbcType= VARCHAR },
+			</if>
+			<if test="messageFlag != null">
+				 #{ messageFlag,jdbcType= VARCHAR },
+			</if>
+			<if test="pic != null">
+				 #{ pic,jdbcType= VARCHAR },
+			</if>
+			<if test="shakeFlag != null">
+				 #{ shakeFlag,jdbcType= VARCHAR },
+			</if>
+		</trim>
+		<selectKey resultType="java.lang.Long" order="AFTER"
+			keyProperty="id">
+			SELECT LAST_INSERT_ID() AS id
+		</selectKey>
+	</insert>
+   
+
+</mapper>
