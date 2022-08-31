@@ -22,7 +22,7 @@ import org.springframework.context.annotation.Import;
 @EnableAspectJAutoProxy
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, DruidDataSourceAutoConfigure.class})
 @Import({DynamicDataSourceConfig.class})
-@MapperScan(basePackages = "com.dynamic.demo.mapper")
+//@MapperScan(basePackages = "com.dynamic.demo.mapper")
 public class DynamicTestApplication {
 
     public static void main(String[] args) {
